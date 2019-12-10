@@ -17,7 +17,7 @@ public class Mqtt_Publisher {
     private String content      = "Hello this is from my computer!";
     private int qos             = 1;
     private String broker       = "tcp://tailor.cloudmqtt.com:13947";
-    private String clientId     = "ccb63498-4fb7-44f6-87f4-a7d3b2aa17d2";
+    private String clientId     = "maochifa";
     private MemoryPersistence persistence = new MemoryPersistence();
 	
 	

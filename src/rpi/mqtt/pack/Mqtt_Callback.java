@@ -17,7 +17,7 @@ public class Mqtt_Callback implements MqttCallback {
 		
 		
 		 char pass[]= {'7','K','8','w','v','T','t','U','4','y','7','f'};
-		MqttClient client = new MqttClient("tcp://tailor.cloudmqtt.com:13947","ccb63498-4fb7-44f6-87f4-a7d3b2aa17d2");
+		MqttClient client = new MqttClient("tcp://tailor.cloudmqtt.com:13947","maochifa");
 	     client.setCallback(this);
 	MqttConnectOptions mqOptions=new MqttConnectOptions();
 	mqOptions.setUserName("maochifa");

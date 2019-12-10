@@ -13,6 +13,8 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 public class Main {
 
 	public static void main(String[] args) throws MqttException {
+	
+		//new Mqtt_Callback();
 		
 	 Mqtt_Publisher p=new Mqtt_Publisher();
 	 p.connect();
