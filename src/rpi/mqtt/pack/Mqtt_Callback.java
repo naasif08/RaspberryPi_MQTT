@@ -1,5 +1,7 @@
 package rpi.mqtt.pack;
 
+import java.util.concurrent.Flow.Publisher;
+
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttClient;
@@ -9,11 +11,17 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 public class Mqtt_Callback implements MqttCallback {
+	 private Mqtt_Publisher publisher=new Mqtt_Publisher();
 
 	public Mqtt_Callback() throws MqttException {
-		MqttClient client = new MqttClient("tcp://tailor.cloudmqtt.com:23947","7K8wvTtU4y7f");
+		
+		
+		 char pass[]= {'7','K','8','w','v','T','t','U','4','y','7','f'};
+		MqttClient client = new MqttClient("tcp://tailor.cloudmqtt.com:13947","ccb63498-4fb7-44f6-87f4-a7d3b2aa17d2");
 	     client.setCallback(this);
 	MqttConnectOptions mqOptions=new MqttConnectOptions();
+	mqOptions.setUserName("maochifa");
+	mqOptions.setPassword(pass);
 	     mqOptions.setCleanSession(true);
 	     client.connect(mqOptions);      //connecting to broker 
 	        client.subscribe("iot_mqtt"); //subscribing to the topic name  test/topic
@@ -32,7 +40,9 @@ public class Mqtt_Callback implements MqttCallback {
 	public void messageArrived(String topic, MqttMessage message) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("Message received:\n\t"+ new String(message.getPayload()) );
-		System.exit(0);
+		//publisher.connect();
+		//publisher.PublishMessage("I have got that message"+ new String(message.getPayload()));
+		
 	}
 
 	@Override

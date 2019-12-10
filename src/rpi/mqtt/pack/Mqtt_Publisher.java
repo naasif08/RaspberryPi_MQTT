@@ -4,31 +4,37 @@ import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
+import org.eclipse.paho.client.mqttv3.MqttPersistenceException;
+import org.eclipse.paho.client.mqttv3.MqttSecurityException;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 public class Mqtt_Publisher {
+	private static MqttMessage message;
+	private MqttClient sampleClient;
+	private MqttConnectOptions connOpts = new MqttConnectOptions();
+	private char pass[]= {'7','K','8','w','v','T','t','U','4','y','7','f'};
+	private String topic        = "iot_mqtt";
+    private String content      = "Hello this is from my computer!";
+    private int qos             = 1;
+    private String broker       = "tcp://tailor.cloudmqtt.com:13947";
+    private String clientId     = "ccb63498-4fb7-44f6-87f4-a7d3b2aa17d2";
+    private MemoryPersistence persistence = new MemoryPersistence();
+	
+	
 
 	public Mqtt_Publisher() throws MqttException {
-	
-		 String topic        = "iot_mqtt";
-         String content      = "New Message!!";
-         int qos             = 1;
-         String broker       = "tcp://mqtt.flespi.io:1883";
-         String clientId     = "ioWXCk8dVx0aQKog8UarqWh3q6ys6Pkc14XufTx0glYWVd1RVZ99Le3Z8pf24o4U";
-       MemoryPersistence persistence = new MemoryPersistence();
+
+	     
 
        try {
-           MqttClient sampleClient = new MqttClient(broker, clientId, persistence);
-           MqttConnectOptions connOpts = new MqttConnectOptions();
+    	   sampleClient= new MqttClient(broker, clientId, persistence);
+           
+           connOpts.setUserName("maochifa");
+           connOpts.setPassword(pass);
            connOpts.setCleanSession(true);
-           System.out.println("Connecting to broker: "+broker);
-           sampleClient.connect(connOpts);
-           System.out.println("Connected");
-           System.out.println("Publishing message: "+content);
-           MqttMessage message = new MqttMessage(content.getBytes());
-           message.setQos(qos);
-           sampleClient.publish(topic, message);
-           System.out.println("Message published");
+           
+           
+           
            
            //System.exit(0);
        } catch(MqttException me) {
@@ -42,6 +48,31 @@ public class Mqtt_Publisher {
 		
 
 
+	}
+
+
+    public void connect() {
+    	System.out.println("Connecting to broker: "+broker);
+        try {
+			sampleClient.connect(connOpts);
+			System.out.println("Connected");
+		} catch (MqttSecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (MqttException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    }
+    
+public void PublishMessage(String msg) throws MqttPersistenceException, MqttException {
+		
+		System.out.println("Publishing message: "+msg);
+        message= new MqttMessage(msg.getBytes());
+        message.setQos(qos);
+        sampleClient.publish(topic, message);
+        System.out.println("Message published");
 	}
 
 }
