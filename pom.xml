@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>RPI_MQTT</groupId>
+  <artifactId>RPI_MQTT</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.0</version>
+        <configuration>
+          <release>9</release>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.coreoz</groupId>
+  		<artifactId>plume-db-hibernate</artifactId>
+  		<version>2.0.0-beta1</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>ai.swim</groupId>
+  		<artifactId>swim-io-mqtt</artifactId>
+  		<version>3.10.0</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>joda-time</groupId>
+  		<artifactId>joda-time-hibernate</artifactId>
+  		<version>1.4</version>
+  	</dependency>
+ <dependency>
+  <groupId>org.eclipse.paho</groupId>
+  <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+  <version>1.1.0</version>
+</dependency>
+
+
+  	<dependency>
+  		<groupId>org.webjars.npm</groupId>
+  		<artifactId>paho-mqtt</artifactId>
+  		<version>1.0.3</version>
+  	</dependency>
+  </dependencies>
+</project>
