@@ -15,16 +15,18 @@ public class Mqtt_Callback implements MqttCallback {
 
 	public Mqtt_Callback() throws MqttException {
 		
-		
-		 char pass[]= {'7','K','8','w','v','T','t','U','4','y','7','f'};
-		MqttClient client = new MqttClient("tcp://tailor.cloudmqtt.com:13947","maochifa");
+		 String user2="naasif08";
+		 char pass[]= {'0','f','b','0','4','5','2','5','e','a','1','5','4','7','7','2','8','4','4','8','3','3','d','0','3','c','f','8','a','3','e','0'};
+		 char pass2[]= {'v','R','-','k','H','H','A','p','8','v','j','Z'};
+		//MqttClient client = new MqttClient("tcp://tailor.cloudmqtt.com:13947","maochifa");
+		 MqttClient client = new MqttClient("tcp://io.adafruit.com:1883","naasif08");
 	     client.setCallback(this);
 	MqttConnectOptions mqOptions=new MqttConnectOptions();
-	mqOptions.setUserName("maochifa");
+	mqOptions.setUserName("naasif08");
 	mqOptions.setPassword(pass);
 	     mqOptions.setCleanSession(true);
 	     client.connect(mqOptions);      //connecting to broker 
-	        client.subscribe("iot_mqtt"); //subscribing to the topic name  test/topic
+	        client.subscribe("naasif08/feeds/myfeed"); //subscribing to the topic name  test/topic
 
 
 	}
