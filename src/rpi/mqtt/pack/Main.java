@@ -15,17 +15,16 @@ public class Main {
 	public static void main(String[] args) throws MqttException {
 	
 		new Mqtt_Callback();
-		/*Mqtt_Publisher p=new Mqtt_Publisher();
-		p.connect();
-		p.PublishMessage("This is from my PC");
-	 Scanner n=new Scanner(System.in);
-	 String value=null;
-	 while(true) {
-		System.out.println("Enter a value:");
-		value=n.nextLine();
-		p.PublishMessage(value);
 		
-		}*/
+		/*
+		  Mqtt_Publisher p=new Mqtt_Publisher(); p.connect();
+		  p.PublishMessage("This is from my PC"); Scanner n=new Scanner(System.in);
+		  String value=null; while(true) { System.out.println("Enter a value:");
+		  value=n.nextLine(); p.PublishMessage(value);
+		  
+		  }
+		  
+		 */  
 		
 	 
 
