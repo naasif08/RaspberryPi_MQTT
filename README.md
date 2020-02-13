@@ -1,2 +1,2 @@
 # RaspberryPi_MQTT
-A simple IOT application using MQTT
+A simple IOT application using MQTT and Java
